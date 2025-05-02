@@ -1,0 +1,14 @@
+{
+  "name": "tarefas",
+  "version": "1.0.0",
+  "description": "Gerenciador de Tarefas",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server"
+  },
+  "author": "Raissa",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
