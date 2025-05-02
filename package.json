@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "Gerenciador de Tarefas",
   "main": "server.js",
+  "type": "module",
   "scripts": {
-    "start": "node server"
+    "start": "node server",
+    "dev": "nodemon server"
   },
   "author": "Raissa",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.1.0"
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
   }
 }
