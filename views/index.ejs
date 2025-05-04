@@ -7,21 +7,26 @@
     <title>Gerenciador de Tarefas</title>
 </head>
 <body>
-    <form action="/create" method="post">
-        <input type="text" name = "task" id="taskInput" placeholder="Digite uma nova tarefa">
-        <button type="submit" id="addTaskButton">Adicionar Tarefa</button>
-    </form>
+    <header>
+        <form action="/create" method="post">
+            <input type="text" name = "task" id="taskInput" placeholder="Digite uma nova tarefa">
+            <button type="submit" id="addTaskButton">Adicionar Tarefa</button>
+        </form>
+    </header>
 
+    <section id="tasks"> 
+        <ul>
+            <% tasksList.forEach ((task) => {%>
+                <li>
+
+                    <%= task.task %> | <%= task.date.toLocaleDateString('pt-BR') %>
+                    <a href="/getById/<%= task._id %>">Editar</a>
+                    <a href="">Apagar</a>
+                </li>
+            <% }) %>
+        </ul>
+   </section>
     
-    <ul>
-        <% tasksList.forEach ((task) => {%>
-        <li>
-            <%= task.task %> | <%= task.date.toLocaleDateString
-            ('pt-BR') %>
-        </li>
-        <% }) %>
-    </ul>
-   
     <script src="script.js"></script>
 </body>
 </html>
