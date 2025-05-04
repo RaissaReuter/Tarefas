@@ -6,11 +6,12 @@
   "type": "module",
   "scripts": {
     "start": "node server",
-    "dev": "nodemon server"
+    "dev": "nodemon server.js"
   },
   "author": "Raissa",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.5.0",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "mongoose": "^8.14.1",
