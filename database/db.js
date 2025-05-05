@@ -1,17 +1,13 @@
+
 import mongoose from "mongoose";
 import "dotenv/config";
 
-const connectDB = async () => {
+export const connectDB = async () => {
   try {
-    // Conectar ao banco de dados sem as opções descontinuadas
-    await mongoose.connect(process.env.MONGO_URI);
-    console.log("MongoDB connected successfully");
+    await mongoose.connect(process.env.MONGODB_URI);
+    console.log(" MongoDB Atlas conectado com sucesso!");
   } catch (err) {
-    console.error("MongoDB connection error:", err.message);
+    console.error(" Erro na conexão com MongoDB:", err.message);
+    process.exit(1);
   }
 };
-
-export default connectDB;
-
-
-

@@ -4,15 +4,16 @@ const taskSchema = new mongoose.Schema({
   task: {
     type: String,
     required: true,
+    trim: true
   },
   check: {
     type: Boolean,
-    required: true,
+    default: false
   },
   date: {
     type: Date,
-    default: Date.now(),
-  },
+    default: Date.now
+  }
 });
 
 const Task = mongoose.model("Task", taskSchema);
