@@ -1,4 +1,5 @@
-import "dotenv/config";
+
+import "dotenv/config"; // Carrega as variáveis do .env primeiro
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -7,16 +8,16 @@ import routes from "./routes/routes.js";
 import session from "express-session";
 import flash from "express-flash";
 
-// Inicializa app e configura porta
-const app = express();
+const app = express(); // Agora está na posição certa!
 const port = process.env.PORT || 3000;
+
+// Conexão com o banco de dados
+await connectDB();
+
 
 // Configuração do __dirname para ES Modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-// Conexão com o banco de dados
-await connectDB();
 
 // Middlewares
 app.use(express.urlencoded({ extended: true }));
