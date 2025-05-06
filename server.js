@@ -4,6 +4,17 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { connectDB } from "./database/db.js";
 import routes from "./routes/routes.js";
+import session from "express-session";
+import flash from "express-flash";
+
+
+app.use(session({
+  secret: "seuSegredo", 
+  resave: false,
+  saveUninitialized: true
+}));
+
+app.use(flash());
 
 // Configuração do __dirname para ES Modules
 const __filename = fileURLToPath(import.meta.url);

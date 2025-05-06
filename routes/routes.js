@@ -3,17 +3,18 @@ import {
   getAllTasks,
   createTask,
   getById,
-  updateTask,
-  deleteOneTask
+  updateOneTask,
+  deleteOneTask,
+  taskCheck,
 } from "../controller/taskController.js";
 
 const router = Router();
 
-// Rotas com funções diretamente vinculadas
 router.get("/", getAllTasks);
 router.post("/create", createTask);
 router.get("/getById/:id/:method", getById);
-router.post("/updateTask/:id", updateTask);
+router.post("/updateTask/:id", updateOneTask);
 router.get("/deleteOne/:id", deleteOneTask);
+router.get("/check/:id", taskCheck);
 
 export default router;
