@@ -7,21 +7,13 @@ import routes from "./routes/routes.js";
 import session from "express-session";
 import flash from "express-flash";
 
-
-app.use(session({
-  secret: "seuSegredo", 
-  resave: false,
-  saveUninitialized: true
-}));
-
-app.use(flash());
+// Inicializa app e configura porta
+const app = express();
+const port = process.env.PORT || 3000;
 
 // Configuração do __dirname para ES Modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-const app = express();
-const port = process.env.PORT || 3000;
 
 // Conexão com o banco de dados
 await connectDB();
@@ -30,6 +22,14 @@ await connectDB();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
+
+app.use(session({
+  secret: "seuSegredo", 
+  resave: false,
+  saveUninitialized: true
+}));
+
+app.use(flash());
 
 // Configuração do EJS
 app.set("view engine", "ejs");
@@ -44,6 +44,7 @@ app.use((err, req, res, next) => {
   res.status(500).render("error", { error: err.message });
 });
 
+// Inicia servidor
 app.listen(port, () => {
-  console.log(`🚀 Servidor rodando em http://localhost:${port}`);
+  console.log(`Servidor rodando em http://localhost:${port}`);
 });
